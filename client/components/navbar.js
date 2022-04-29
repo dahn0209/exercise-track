@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {Stylednavbar} from './navbar.styled'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <Stylednavbar>
     <h1>Exercise Track</h1>
     <nav>
       {isLoggedIn ? (
@@ -24,8 +25,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </div>
       )}
     </nav>
-    <hr />
-  </div>
+    {/* <hr /> */}
+  </Stylednavbar>
 )
 
 /**

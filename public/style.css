@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -7,7 +11,7 @@ a {
 }
 
 label {
-  display: block;
+  display: flex;
 }
 
 nav a {
