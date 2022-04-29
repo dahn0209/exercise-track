@@ -7,7 +7,10 @@ import {Stylednavbar, StylednavLinks} from './navbar.styled'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <Stylednavbar>
-    <h1>Exercise Track</h1>
+    <NavLink to="/">
+      <h1>Exercise Track</h1>
+    </NavLink>
+
     <nav>
       {isLoggedIn ? (
         <StylednavLinks>
