@@ -10,19 +10,28 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     <h1>Exercise Track</h1>
     <nav>
       {isLoggedIn ? (
-        <div>
+        <ul>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            {' '}
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
+          </li>
+        </ul>
       ) : (
-        <div>
+        <ul>
           {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+        </ul>
       )}
     </nav>
     {/* <hr /> */}

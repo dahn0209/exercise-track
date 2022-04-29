@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
-export const Stylednavbar = styled.div`
-  box-sizing: border-box;
+export const Stylednavbar = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: coral;
+  padding: 10px;
+  border-radius: 10px;
 
-  h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+  ul {
+    list-style: none;
+  }
+
+  ul li {
+    display: inline-block;
   }
 `
