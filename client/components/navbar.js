@@ -1,19 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import {logout} from '../store'
-import {Stylednavbar} from './navbar.styled'
+import {Stylednavbar, StylednavLinks} from './navbar.styled'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <Stylednavbar>
     <h1>Exercise Track</h1>
     <nav>
       {isLoggedIn ? (
-        <ul>
+        <StylednavLinks>
           {/* The navbar will show these links after you log in */}
           <li>
-            <Link to="/home">Home</Link>
+            <NavLink to="/home" activeClassName="link">
+              Home
+            </NavLink>
           </li>
           <li>
             {' '}
@@ -21,17 +23,21 @@ const Navbar = ({handleClick, isLoggedIn}) => (
               Logout
             </a>
           </li>
-        </ul>
+        </StylednavLinks>
       ) : (
-        <ul>
+        <StylednavLinks>
           {/* The navbar will show these links before you log in */}
           <li>
-            <Link to="/login">Login</Link>
+            <NavLink to="/login" activeClassName="link">
+              Login
+            </NavLink>
           </li>
           <li>
-            <Link to="/signup">Sign Up</Link>
+            <NavLink to="/signup" activeClassName="link">
+              Sign Up
+            </NavLink>
           </li>
-        </ul>
+        </StylednavLinks>
       )}
     </nav>
     {/* <hr /> */}
