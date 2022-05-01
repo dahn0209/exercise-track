@@ -4,6 +4,7 @@ export const Stylednavbar = styled.header`
   top: 0px;
   z-index: 10;
   background-color: rgb(31 41 55);
+  border-radius: 20px;
   @media (min-width: 768px) {
     position: sticky;
   }
@@ -18,6 +19,7 @@ export const ContainerNavBar = styled.div`
   flex-wrap: wrap;
   padding: 20px;
   align-items: center;
+
   @media (min-width: 768px) {
     flex-direction: row;
   }
