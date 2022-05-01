@@ -79,3 +79,19 @@ export const ButtonDiv = styled.div`
     background-color: rgb(22 163 74);
   }
 `
+export const PicSection = styled.section`
+  width: 83.333333%;
+  @media (min-width: 1024px) {
+    max-width: 32rem;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+  }
+`

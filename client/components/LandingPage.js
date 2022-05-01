@@ -1,6 +1,6 @@
 import React from 'react'
-import {NavLink, Link} from 'react-router-dom'
-import {HeroMain, SectionOne, ButtonDiv} from './LandingPage.styled'
+import {Link} from 'react-router-dom'
+import {HeroMain, SectionOne, ButtonDiv, PicSection} from './LandingPage.styled'
 
 const LandingPage = () => {
   return (
@@ -24,11 +24,9 @@ const LandingPage = () => {
       </SectionOne>
 
       {/* image section */}
-      <section>
-        {/* <img/> */}
-        <h1>DEEEEEEE</h1>
-      </section>
-      <footer />
+      <PicSection>
+        <img alt="hero" src="./resized-exercise.jpeg" />
+      </PicSection>
     </HeroMain>
   )
 }
