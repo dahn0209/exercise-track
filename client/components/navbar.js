@@ -3,46 +3,42 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {logout} from '../store'
-import {Stylednavbar, StylednavLinks} from './navbar.styled'
+import {Stylednavbar, ContainerNavBar, StyledNav} from './navbar.styled'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <Stylednavbar>
-    <NavLink to="/">
-      <h1>Exercise Track</h1>
-    </NavLink>
+    <ContainerNavBar>
+      <NavLink to="/" activeClassName="title">
+        <h1>Exercise-Track</h1>
+      </NavLink>
 
-    <nav>
-      {isLoggedIn ? (
-        <StylednavLinks>
-          {/* The navbar will show these links after you log in */}
-          <li>
+      <StyledNav>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
             <NavLink to="/home" activeClassName="link">
               Home
-            </NavLink>
-          </li>
-          <li>
-            {' '}
+            </NavLink>{' '}
             <a href="#" onClick={handleClick}>
               Logout
             </a>
-          </li>
-        </StylednavLinks>
-      ) : (
-        <StylednavLinks>
-          {/* The navbar will show these links before you log in */}
-          <li>
-            <NavLink to="/login" activeClassName="link">
-              Login
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+
+            <NavLink to="/login" activeClassName="land-link">
+              <h3>Login</h3>
             </NavLink>
-          </li>
-          <li>
-            <NavLink to="/signup" activeClassName="link">
-              Sign Up
+
+            <NavLink to="/signup" activeClassName="land-link">
+              <h3>Sign Up</h3>
             </NavLink>
-          </li>
-        </StylednavLinks>
-      )}
-    </nav>
+          </div>
+        )}
+      </StyledNav>
+    </ContainerNavBar>
+
     {/* <hr /> */}
   </Stylednavbar>
 )
