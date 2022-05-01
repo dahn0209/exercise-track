@@ -6,7 +6,6 @@ export const Stylednavbar = styled.header`
   align-items: center;
   background-color: coral;
   padding: 15px;
-  border-radius: 10px;
 
   h1 {
     color: white;
