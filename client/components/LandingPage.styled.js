@@ -21,9 +21,9 @@ export const SectionDivide = styled.section`
   margin-bottom: 64px;
   align-items: center;
   text-align: center;
-  /* flex-grow: 1;
+  flex-grow: 1;
   flex-shrink: 1;
-  flex-basis: 0; */
+  flex-basis: auto;
   /* @media (min-width: 1024px) {
     flex-grow: 1;
     padding-right: 64px;
@@ -55,6 +55,8 @@ export const SectionDivide = styled.section`
 
   img {
     position: relative;
+    max-width: 100%;
+    max-height: auto;
     object-fit: contain;
     object-position: center;
     border-radius: 4px;

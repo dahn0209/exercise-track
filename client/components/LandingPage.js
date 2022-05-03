@@ -6,7 +6,7 @@ const LandingPage = () => {
   return (
     <HeroMain>
       {/* descroption section */}
-      <SectionDivide>
+      <SectionDivide className="section-divide">
         <h1>
           Get Healthy with <br />
           <em>Exercise-Track</em>
