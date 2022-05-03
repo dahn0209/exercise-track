@@ -5,6 +5,8 @@ export const Stylednavbar = styled.header`
   z-index: 10;
   background-color: rgb(31 41 55);
   border-radius: 20px;
+  width: 100%;
+
   @media (min-width: 768px) {
     position: sticky;
   }

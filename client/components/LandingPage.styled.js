@@ -8,22 +8,23 @@ export const HeroMain = styled.main`
   padding-right: 40px;
   padding-top: 80px;
   padding-bottom: 80px;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
+  align-content: space-between;
+  justify-content: space-between;
 `
 
-export const SectionOne = styled.section`
+export const SectionDivide = styled.section`
   display: flex;
   flex-direction: column;
   margin-bottom: 64px;
   align-items: center;
   text-align: center;
-
-  @media (min-width: 1024px) {
+  /* flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0; */
+  /* @media (min-width: 1024px) {
     flex-grow: 1;
     padding-right: 64px;
   }
@@ -32,7 +33,7 @@ export const SectionOne = styled.section`
     align-items: flex-start;
     text-align: left;
     margin-bottom: 0px;
-  }
+  } */
 
   h1 {
     font-size: 30px;
@@ -50,6 +51,13 @@ export const SectionOne = styled.section`
   p {
     margin-bottom: 32px;
     line-height: 1.625;
+  }
+
+  img {
+    position: relative;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 4px;
   }
 `
 export const ButtonDiv = styled.div`
@@ -77,21 +85,5 @@ export const ButtonDiv = styled.div`
 
   .sign-up:hover {
     background-color: rgb(22 163 74);
-  }
-`
-export const PicSection = styled.section`
-  width: 83.333333%;
-  @media (min-width: 1024px) {
-    max-width: 32rem;
-    width: 100%;
-  }
-  @media (min-width: 768px) {
-    width: 50%;
-  }
-
-  img {
-    object-fit: cover;
-    object-position: center;
-    border-radius: 4px;
   }
 `

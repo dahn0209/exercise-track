@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {HeroMain, SectionOne, ButtonDiv, PicSection} from './LandingPage.styled'
+import {HeroMain, SectionDivide, ButtonDiv} from './LandingPage.styled'
 
 const LandingPage = () => {
   return (
     <HeroMain>
       {/* descroption section */}
-      <SectionOne>
+      <SectionDivide>
         <h1>
           Get Healthy with <br />
           <em>Exercise-Track</em>
@@ -21,12 +21,12 @@ const LandingPage = () => {
             Sign Up
           </Link>
         </ButtonDiv>
-      </SectionOne>
+      </SectionDivide>
 
       {/* image section */}
-      <PicSection>
+      <SectionDivide>
         <img alt="hero" src="./resized-exercise.jpeg" />
-      </PicSection>
+      </SectionDivide>
     </HeroMain>
   )
 }

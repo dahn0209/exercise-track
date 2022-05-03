@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {LoginSection} from './auth-form.styled'
 
 /**
  * COMPONENT
@@ -11,7 +12,7 @@ const AuthForm = props => {
 
   if (displayName === 'Login') {
     return (
-      <div>
+      <LoginSection>
         <form onSubmit={handleSubmit} name={name}>
           <div>
             <label htmlFor="email">
@@ -30,8 +31,8 @@ const AuthForm = props => {
           </div>
           {error && error.response && <div> {error.response.data} </div>}
         </form>
-        <a href="/auth/google">{displayName} with Google</a>
-      </div>
+        {/* <a href="/auth/google">{displayName} with Google</a> */}
+      </LoginSection>
     )
   }
 }
