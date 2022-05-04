@@ -49,10 +49,8 @@ const AuthForm = props => {
             <label htmlFor="password">Password</label>
           </EachLabelDiv>
           {/* <PassDiv>Forgot Password?</PassDiv> */}
-          <ButtonStyled>
-            <button type="submit" className={displayName}>
-              {displayName}
-            </button>
+          <ButtonStyled type="submit" className={displayName}>
+            {displayName}
           </ButtonStyled>
 
           <SignupLinkDiv>
