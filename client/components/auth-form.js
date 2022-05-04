@@ -1,8 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {LoginSection} from './auth-form.styled'
+import {
+  StyledWrapper,
+  TitleDiv,
+  FormStyled,
+  EachLabelDiv,
+  PassDiv,
+  ButtonStyled,
+  SignupLinkDiv
+} from './auth-form.styled'
 
 /**
  * COMPONENT
@@ -12,27 +21,35 @@ const AuthForm = props => {
 
   if (displayName === 'Login') {
     return (
-      <LoginSection>
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="email">
-              <small>Email</small>
-            </label>
-            <input name="email" type="text" />
-          </div>
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
+      <StyledWrapper>
+        <TitleDiv>{displayName}</TitleDiv>
+        <FormStyled onSubmit={handleSubmit} name={name}>
+          <EachLabelDiv>
+            <input name="email" type="text" required />
+            <span />
+            <label htmlFor="email">Email</label>
+          </EachLabelDiv>
+
+          <EachLabelDiv>
+            <input name="password" type="password" required />
+            <span />
+            <label htmlFor="password">Password</label>
+          </EachLabelDiv>
+          {/* <PassDiv>Forgot Password?</PassDiv> */}
+          <ButtonStyled type="submit" className={displayName}>
+            {displayName}
+          </ButtonStyled>
+          <SignupLinkDiv>
+            Not a member?
+            <Link to="/signup" className="sign-up">
+              Sign Up
+            </Link>
+          </SignupLinkDiv>
+
           {error && error.response && <div> {error.response.data} </div>}
-        </form>
+        </FormStyled>
         {/* <a href="/auth/google">{displayName} with Google</a> */}
-      </LoginSection>
+      </StyledWrapper>
     )
   }
 }
