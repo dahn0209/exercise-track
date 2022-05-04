@@ -2,6 +2,16 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {
+  StyledWrapper,
+  TitleDiv,
+  FormStyled,
+  EachLabelDiv,
+  PassDiv,
+  ButtonStyled,
+  SignupLinkDiv
+} from './auth-form.styled'
+import {Link} from 'react-router-dom'
 
 /**
  * COMPONENT
@@ -12,42 +22,50 @@ const AuthForm = props => {
 
   if (displayName === 'Sign Up') {
     return (
-      <div>
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="firstName">
-              <small>First Name</small>
-            </label>
-            <input name="firstName" type="text" />
-          </div>
+      <StyledWrapper>
+        <TitleDiv>{displayName}</TitleDiv>
+        <FormStyled onSubmit={handleSubmit} name={name}>
+          <EachLabelDiv>
+            <input name="firstName" type="text" required />
+            <span />
+            <label htmlFor="firstName">First Name</label>
+          </EachLabelDiv>
 
-          <div>
-            <label htmlFor="lastName">
-              <small>Last Name</small>
-            </label>
-            <input name="lastName" type="text" />
-          </div>
+          <EachLabelDiv>
+            <input name="lastName" type="text" required />
+            <span />
+            <label htmlFor="lastName">Last Name</label>
+          </EachLabelDiv>
 
-          <div>
-            <label htmlFor="email">
-              <small>Email</small>
-            </label>
-            <input name="email" type="text" />
-          </div>
+          <EachLabelDiv>
+            <input name="email" type="text" required />
+            <span />
+            <label htmlFor="email">Email</label>
+          </EachLabelDiv>
 
-          <div>
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
+          <EachLabelDiv>
+            <input name="password" type="password" required />
+            <span />
+            <label htmlFor="password">Password</label>
+          </EachLabelDiv>
+          {/* <PassDiv>Forgot Password?</PassDiv> */}
+          <ButtonStyled>
+            <button type="submit" className={displayName}>
+              {displayName}
+            </button>
+          </ButtonStyled>
+
+          <SignupLinkDiv>
+            Already a Member?
+            <Link to="/login" className="sign-up">
+              Login
+            </Link>
+          </SignupLinkDiv>
+
           {error && error.response && <div> {error.response.data} </div>}
-        </form>
-        <a href="/auth/google">{displayName} with Google</a>
-      </div>
+        </FormStyled>
+        {/* <a href="/auth/google">{displayName} with Google</a> */}
+      </StyledWrapper>
     )
   }
 }

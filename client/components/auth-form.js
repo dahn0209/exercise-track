@@ -39,6 +39,7 @@ const AuthForm = props => {
           <ButtonStyled type="submit" className={displayName}>
             {displayName}
           </ButtonStyled>
+
           <SignupLinkDiv>
             Not a member?
             <Link to="/signup" className="sign-up">
