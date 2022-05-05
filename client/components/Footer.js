@@ -1,5 +1,4 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
 import {
   FooterStyled,
   FooterContent,
@@ -7,6 +6,13 @@ import {
   FooterBottom,
   LinkStyled
 } from './Footer.styled'
+import {
+  faYoutube,
+  faFacebook,
+  faTwitter,
+  faInstagram
+} from '@fortawesome/free-brands-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const Footer = () => {
   return (
@@ -20,27 +26,22 @@ const Footer = () => {
         <ULsocial className="socials">
           <li>
             <LinkStyled href="#">
-              <i className="fa fa-facebook" />
+              <FontAwesomeIcon icon={faFacebook} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
             <LinkStyled href="#">
-              <i className="fa fa-twitter" />
+              <FontAwesomeIcon icon={faTwitter} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
             <LinkStyled href="#">
-              <i className="fa fa-google-plus" />
+              <FontAwesomeIcon icon={faYoutube} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
             <LinkStyled href="#">
-              <i className="fa fa-youtube" />
-            </LinkStyled>
-          </li>
-          <li>
-            <LinkStyled href="#">
-              <i className="fa fa-linkedin-square" />
+              <FontAwesomeIcon icon={faInstagram} className="i-tag" />
             </LinkStyled>
           </li>
         </ULsocial>

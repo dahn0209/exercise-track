@@ -38,7 +38,7 @@ export const ULsocial = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
 
   li {
     margin: 0 10px;
@@ -47,12 +47,12 @@ export const ULsocial = styled.ul`
 export const LinkStyled = styled.a`
   text-decoration: none;
   color: #fff;
-  i {
+  .i-tag {
     font-size: 1.1rem;
     transition: color 0.4s ease;
   }
 
-  a:hover i {
+  a:hover .i-tag {
     color: aqua;
   }
 `
