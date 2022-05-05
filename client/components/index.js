@@ -5,5 +5,7 @@
  */
 export {default as Navbar} from './navbar'
 export {default as UserHome} from './user-home'
+export {default as Footer} from './Footer'
 export {Login} from './auth-form'
 export {Signup} from './auth-form2'
+export {default as LandingPage} from './LandingPage'
