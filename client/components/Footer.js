@@ -25,22 +25,22 @@ const Footer = () => {
 
         <ULsocial className="socials">
           <li>
-            <LinkStyled href="#">
+            <LinkStyled href="www.facebook.com">
               <FontAwesomeIcon icon={faFacebook} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
-            <LinkStyled href="#">
+            <LinkStyled href="www.twitter.com">
               <FontAwesomeIcon icon={faTwitter} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
-            <LinkStyled href="#">
+            <LinkStyled href="www.youtube.com">
               <FontAwesomeIcon icon={faYoutube} className="i-tag" />
             </LinkStyled>
           </li>
           <li>
-            <LinkStyled href="#">
+            <LinkStyled href="www.instagram.com">
               <FontAwesomeIcon icon={faInstagram} className="i-tag" />
             </LinkStyled>
           </li>
