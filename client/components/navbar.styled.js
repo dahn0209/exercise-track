@@ -60,7 +60,7 @@ export const StyledNav = styled.nav`
   .link:hover {
     color: white;
   }
-  .land-link {
+  .landlink {
     display: inline-flex;
     align-items: center;
     background-color: rgb(75 85 99);
