@@ -27,6 +27,7 @@ const AuthForm = props => {
         <FormStyled onSubmit={handleSubmit} name={name}>
           <EachLabelDiv>
             <input name="firstName" type="text" required />
+
             <span />
             <label htmlFor="firstName">First Name</label>
           </EachLabelDiv>
@@ -49,6 +50,7 @@ const AuthForm = props => {
             <label htmlFor="password">Password</label>
           </EachLabelDiv>
           {/* <PassDiv>Forgot Password?</PassDiv> */}
+
           <ButtonStyled type="submit" className={displayName}>
             {displayName}
           </ButtonStyled>
