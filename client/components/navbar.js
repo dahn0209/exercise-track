@@ -19,8 +19,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             <NavLink to="/home" activeClassName="landlink">
               <h3>Home</h3>
             </NavLink>{' '}
-            <NavLink to="/update-profile" activeClassName="landlink">
-              <h3>Update Profile</h3>
+            <NavLink to="/updateUser" activeClassName="landlink">
+              <h3>Update User</h3>
             </NavLink>{' '}
             <a href="#" onClick={handleClick} activeClassName="landlink">
               <h3>Logout</h3>
