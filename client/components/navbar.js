@@ -18,10 +18,13 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             {/* The navbar will show these links after you log in */}
             <NavLink to="/home" activeClassName="landlink">
               <h3>Home</h3>
-            </NavLink>{' '}
+            </NavLink>
             <NavLink to="/updateUser" activeClassName="landlink">
               <h3>Update User</h3>
-            </NavLink>{' '}
+            </NavLink>
+            <NavLink to="/plans" activeClassName="landlink">
+              <h3>Plans</h3>
+            </NavLink>
             <a href="#" onClick={handleClick} activeClassName="landlink">
               <h3>Logout</h3>
             </a>
