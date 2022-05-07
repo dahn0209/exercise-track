@@ -2,7 +2,7 @@ import React from 'react'
 import {fetchPlans, deletePlanThunk} from '../store/plans'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-// import AddNewPlan from './AddPlan'
+import AddNewPlan from './AddPlan'
 
 export class AllPlans extends React.Component {
   componentDidMount() {
@@ -11,12 +11,11 @@ export class AllPlans extends React.Component {
 
   render() {
     const plans = this.props.plans
-    console.log('props=>', this.props)
-    console.log('plans=>', plans)
-    console.log('state=>', this.state)
+    // console.log('plans=>', plans)
+    // console.log('state=>', this.state)
     return (
       <div>
-        {/* <AddNewPlan /> */}
+        <AddNewPlan />
         <h1>All Plans</h1>
         <h2>List of Plan:</h2>
         {plans.map(plan => {

@@ -8,10 +8,10 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const userId = req.session.passport.user
-    console.log('this is UserId=>', userId)
+    // console.log('this is UserId=>', userId)
 
     const plans = await Plan.findAll({where: {userId: userId}})
-    console.log('allthe Plains=>', plans)
+    // console.log('allthe Plains=>', plans)
     res.json(plans)
   } catch (error) {
     next(error)
@@ -21,10 +21,9 @@ router.get('/', async (req, res, next) => {
 // /api/plans
 router.post('/', async (req, res, next) => {
   try {
-    // req.body.price = req.body.price * 100
     const currentUser = await User.findByPk(req.session.passport.user)
     const plan = await Plan.create(req.body)
-    await plan.assignUser(currentUser)
+    await plan.setUser(currentUser)
     res.send(plan)
   } catch (error) {
     next(error)

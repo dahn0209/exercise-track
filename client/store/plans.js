@@ -18,7 +18,7 @@ export const fetchPlans = () => {
   return async dispatch => {
     try {
       const {data} = await axios.get('/api/plans')
-      console.log('data Thunk=>', data)
+      // console.log('data Thunk=>', data)
       dispatch(setPlans(data))
     } catch (error) {
       console.log(error)
