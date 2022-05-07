@@ -9,7 +9,9 @@ const Plan = require('./plan')
  */
 
 //has one order or has many orders?
+////1 to many relationhsip
 User.hasMany(Plan)
+///Foreign key of User goes on plan tbale
 Plan.belongsTo(User)
 
 /**

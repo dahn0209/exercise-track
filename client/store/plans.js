@@ -79,6 +79,7 @@ export const updatePlanThunk = plan => {
   return async dispatch => {
     try {
       const response = await axios.put(`/api/plans/${plan.id}`, plan)
+      console.log('plans Response=>', response)
       const updatedPlan = response.data
 
       dispatch(updatePlan(updatedPlan))

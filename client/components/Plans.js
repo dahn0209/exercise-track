@@ -11,6 +11,8 @@ export class AllPlans extends React.Component {
 
   render() {
     const plans = this.props.plans
+    console.log('plans=>', plans)
+    console.log('state=>', this.state)
     return (
       <div>
         {/* <AddNewPlan /> */}

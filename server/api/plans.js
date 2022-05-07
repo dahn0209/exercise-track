@@ -1,13 +1,15 @@
 const router = require('express').Router()
-const {Plan} = require('../db/models')
+const {User, Plan} = require('../db/models')
 module.exports = router
 
 // --------- routes for: api/plans -----------
 
 // /api/plans
-router.get('/plans', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    const plans = await Plan.findAll()
+    const userId = req.session.passport.user
+
+    const plans = await Plan.findAll({where: {userId: userId}})
     res.json(plans)
   } catch (error) {
     next(error)
@@ -15,31 +17,48 @@ router.get('/plans', async (req, res, next) => {
 })
 
 // /api/plans
-router.post('/plans', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     // req.body.price = req.body.price * 100
+    const currentUser = await User.findByPk(req.session.passport.user)
     const plan = await Plan.create(req.body)
-
+    await plan.assignUser(currentUser)
     res.send(plan)
   } catch (error) {
     next(error)
   }
 })
 
+router.get('/:Id', async (req, res, next) => {
+  try {
+    //////use getPlans magicMethod
+    const plan = await Plan.findByPk(req.params.planId)
+
+    if (plan) {
+      res.json(plan)
+    } else {
+      res.status(404).send('plan not found')
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 // /api/plans/:id
-router.put('/plans/:id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
     const planId = req.params.id
     const plan = await Plan.findByPk(planId)
-    // req.body.price = req.body.price * 100
-    res.send(await plan.update(req.body))
+    const editThisPlan = await plan.update(req.body)
+    console.log('editThisPlan==>', editThisPlan)
+    res.send(editThisPlan)
   } catch (error) {
     next(error)
   }
 })
 
 // /api/plan/:id
-router.delete('/plans/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const planId = req.params.id
     const plan = await Plan.findByPk(planId)
