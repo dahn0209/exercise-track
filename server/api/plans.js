@@ -5,11 +5,13 @@ module.exports = router
 // --------- routes for: api/plans -----------
 
 // /api/plans
-router.get('/plans', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const userId = req.session.passport.user
+    console.log('this is UserId=>', userId)
 
     const plans = await Plan.findAll({where: {userId: userId}})
+    console.log('allthe Plains=>', plans)
     res.json(plans)
   } catch (error) {
     next(error)
@@ -17,7 +19,7 @@ router.get('/plans', async (req, res, next) => {
 })
 
 // /api/plans
-router.post('/plans', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     // req.body.price = req.body.price * 100
     const currentUser = await User.findByPk(req.session.passport.user)
@@ -29,7 +31,7 @@ router.post('/plans', async (req, res, next) => {
   }
 })
 
-router.get('/plans/:id', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     //////use getPlans magicMethod
     const plan = await Plan.findByPk(req.params.planId)
@@ -45,7 +47,7 @@ router.get('/plans/:id', async (req, res, next) => {
 })
 
 // /api/plans/:id
-router.put('/plans/:id', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
     const planId = req.params.id
     const plan = await Plan.findByPk(planId)
@@ -58,7 +60,7 @@ router.put('/plans/:id', async (req, res, next) => {
 })
 
 // /api/plan/:id
-router.delete('/plans/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const planId = req.params.id
     const plan = await Plan.findByPk(planId)
