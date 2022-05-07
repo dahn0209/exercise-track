@@ -1,6 +1,6 @@
 import React from 'react'
 // import {
-//   FetchPlans,
+//   fetchPlans,
 //   deletePlanThunk
 // } from '../store/plans'
 import {connect} from 'react-redux'
@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 
 export class AllPlans extends React.Component {
   // componentDidMount() {
-  //   this.props.FetchProducts()
+  //   this.props.fetchPlans()
   // }
 
   render() {
@@ -21,14 +21,14 @@ export class AllPlans extends React.Component {
       //   <h2>List of Plan:</h2>
       //   {plans.map(plan => {
       //     return (
-      //       <div className="all-product-list" key={plan.id}>
+      //       <div className="all-plan-list" key={plan.id}>
       //         <div>
-      //           <Link to={`/products/${plan.id}`}>
+      //           <Link to={`/plans/${plan.id}`}>
       //             <h2>{plan.name}</h2>
-      //             {/* <img src={product.imageUrl} /> */}
+      //             {/* <img src={plan.imageUrl} /> */}
       //           </Link>
       //           <p>{plan.description}</p>
-      //           {/* <h3>Price:{product.price / 100}</h3> */}
+      //           {/* <h3>Price:{plan.price / 100}</h3> */}
       //           <div>
       //             <Link to={`/plans/${plan.id}/edit`}>
       //               <button type="button">Edit Plan</button>
@@ -47,7 +47,7 @@ export class AllPlans extends React.Component {
       //   })}
       //   <div />
       // </div>
-      <div>HELLO!!!!</div>
+      <div>HELLO!!!! DEEEE!!!!</div>
     )
   }
 }
@@ -61,7 +61,7 @@ export class AllPlans extends React.Component {
 // const mapDispatchToProps = dispatch => {
 //   return {
 //     FetchPlans: () => dispatch(FetchPlans()),
-//     deletePlanThunk: productId => dispatch(deletePlanThunk(productId))
+//     deletePlanThunk: planId => dispatch(deletePlanThunk(planId))
 //   }
 // }
 
