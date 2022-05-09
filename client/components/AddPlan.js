@@ -1,6 +1,12 @@
 import React from 'React'
 import {createNewPlan} from '../store/plans'
 import {connect} from 'react-redux'
+import {
+  StyledSection,
+  StyledForm,
+  StyledInput,
+  StyledButton
+} from './AddPlan.styled'
 
 const defaultState = {
   name: '',
@@ -31,12 +37,11 @@ class AddNewPlan extends React.Component {
   render() {
     const {name, description} = this.state
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <h1>New Plan Details</h1>
-
-          <label htmlFor="name">Plan Name</label>
-          <input
+      <StyledSection>
+        <h1>New Plan Details</h1>
+        <StyledForm onSubmit={this.handleSubmit}>
+          <StyledInput
+            className="new-input"
             type="text"
             name="name"
             value={name}
@@ -44,9 +49,10 @@ class AddNewPlan extends React.Component {
             onChange={this.handleChange}
             required
           />
+          {/* <label htmlFor="name">Plan Name</label> */}
 
-          <label htmlFor="description">Plan Description</label>
-          <input
+          <StyledInput
+            className="new-input"
             type="text"
             name="description"
             value={description}
@@ -54,10 +60,13 @@ class AddNewPlan extends React.Component {
             onChange={this.handleChange}
             required
           />
+          {/* <label htmlFor="description">Plan Description</label> */}
 
-          <button type="submit">Add New Plan</button>
-        </form>
-      </div>
+          <StyledButton type="submit" className="new-input">
+            Add Plan
+          </StyledButton>
+        </StyledForm>
+      </StyledSection>
     )
   }
 }
