@@ -41,12 +41,13 @@ export class AllPlans extends React.Component {
                 <p className="plan-box">{plan.description}</p>
 
                 <StyledButton className="plan-box">
-                  <Link to={`/plans/${plan.id}/edit`} className="edit-button">
+                  <Link to={`/plans/${plan.id}/edit`} className="button-class">
                     <button type="button" id="button-edit">
                       Edit
                     </button>
                   </Link>
-                  <div className="edit-button">
+
+                  <div className="button-class">
                     <button
                       type="button"
                       onClick={() => this.props.deletePlanThunk(plan)}

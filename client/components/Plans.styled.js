@@ -39,7 +39,7 @@ export const StyledButton = styled.div`
   flex: 1;
   width: 100%;
 
-  .edit-button {
+  .button-class {
     width: 50%;
     height: 50px;
   }
@@ -59,7 +59,7 @@ export const StyledButton = styled.div`
 
   #submit-button {
     width: 100%;
-    height: 50px;
+    height: 100%;
     border: 1px solid;
     color: white;
     background-color: rgb(22 163 74);
@@ -68,5 +68,6 @@ export const StyledButton = styled.div`
     font-weight: 700;
     cursor: pointer;
     outline: none;
+    /* width: fit-content; */
   }
 `

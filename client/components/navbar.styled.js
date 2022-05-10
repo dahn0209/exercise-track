@@ -19,7 +19,7 @@ export const ContainerNavBar = styled.div`
   margin-right: auto;
   margin-left: auto;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 10px;
   align-items: center;
 
   @media (min-width: 768px) {
