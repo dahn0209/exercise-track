@@ -1,5 +1,6 @@
 import React from 'react'
-import {fetchPlans, deletePlanThunk} from '../store/plans'
+import {fetchPlans, deletePlanThunk, updatePlanThunk} from '../store/plans'
+import {fetchSinglePlan} from '../store/plan'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import AddNewPlan from './AddPlan'
@@ -17,12 +18,13 @@ export class AllPlans extends React.Component {
 
   render() {
     const plans = this.props.plans
-    // console.log('plans=>', plans)
-    // console.log('state=>', this.state)
+    console.log('plans', plans)
+    console.log('props=>', this.props)
     return (
       <MainStyled>
         <HeaderStyled className="flex-item">
           <h1>All Plans</h1>
+          {console.log('plan inJSX=>', this.props.plans)}
         </HeaderStyled>
         <AddNewPlan className="flex-item" />
 
@@ -34,6 +36,8 @@ export class AllPlans extends React.Component {
           {plans.map(plan => {
             return (
               <StyledPlanListCard className="all-plan-list" key={plan.id}>
+                {/*
+              find a way to to use tenary logic to switch when clicking edit   */}
                 <Link to={`/plans/${plan.id}`} className="plan-box">
                   <h2>{plan.name}</h2>
                 </Link>
@@ -68,6 +72,7 @@ export class AllPlans extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log('mapStatePropsState=>', state)
   return {
     plans: state.plans
   }

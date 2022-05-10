@@ -1,16 +1,14 @@
 // import React from 'react'
-// import {updateDrawingThunk} from '../store/drawings'
+// import {updatePlanThunk} from '../store/plans'
 // import {connect} from 'react-redux'
-// import {fetchSingleDrawing} from '../store/singleDrawing'
-// import {Route, Link} from 'react-router-dom'
-// import DrawingTool from './DrawingTool'
+// import {fetchSinglePlan} from '../store/plan'
 
 // const defaultState = {
 //   name: '',
 //   description: ''
 // }
 
-// class EditDrawing extends React.Component {
+// class EditPlan extends React.Component {
 //   constructor() {
 //     super()
 //     this.state = defaultState
@@ -19,10 +17,10 @@
 //     this.handleSubmit = this.handleSubmit.bind(this)
 //   }
 //   componentDidMount() {
-//     const drawingId = this.props.match.params.drawingId
-//     this.props.fetchSingleDrawing(drawingId)
-//     const {name, description} = this.props.updatedDrawing
-//     if (drawingId) {
+//     const planId = this.props.match.params.planId
+//     this.props.fetchSinglePlan(planId)
+//     const {name, description} = this.props.updatedPlan
+//     if (planId) {
 //       this.setState({
 //         name,
 //         description
@@ -31,8 +29,8 @@
 //   }
 
 //   componentDidUpdate(prevProps) {
-//     const {name, description, id} = this.props.updatedDrawing
-//     if (prevProps.updatedDrawing.id !== id) {
+//     const {name, description, id} = this.props.updatedPlan
+//     if (prevProps.updatedPlan.id !== id) {
 //       this.setState({
 //         name,
 //         description
@@ -48,8 +46,8 @@
 
 //   handleSubmit(event) {
 //     event.preventDefault()
-//     this.props.updateDrawingThunk({
-//       ...this.props.updatedDrawing,
+//     this.props.updatePlanThunk({
+//       ...this.props.updatedplan,
 //       ...this.state
 //     })
 //   }
@@ -60,13 +58,13 @@
 //     return (
 //     <div>
 //       <div className="form">
-//         <form id="add-drawing-form" onSubmit={this.handleSubmit}>
+//         <form id="add-plan-form" onSubmit={this.handleSubmit}>
 //           <label htmlFor="name">Name:</label>
 //           <input
 //             type="text"
 //             name="name"
 //             value={name}
-//             placeholder="name of drawing"
+//             placeholder="name of plan"
 //             onChange={this.handleChange}
 //           />
 
@@ -75,18 +73,14 @@
 //             type="text"
 //             name="description"
 //             value={description}
-//             placeholder="drawing description"
+//             placeholder="plan description"
 //             onChange={this.handleChange}
 //           />
 
 //           <button type="submit" className="submit-button">
-//             Save Drawing
+//             Save Plan
 //           </button>
 //         </form>
-//       </div>
-
-//       <div>
-//         <Route component={DrawingTool} />
 //       </div>
 //     </div>
 //     )
@@ -95,15 +89,15 @@
 
 // const mapStateToProps = state => {
 //   return {
-//     updatedDrawing: state.singleDrawingReducer
+//     updatedPlan: state.singlePlanReducer
 //   }
 // }
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     updateDrawingThunk: drawing => dispatch(updateDrawingThunk(drawing)),
-//     fetchSingleDrawing: drawingId => dispatch(fetchSingleDrawing(drawingId))
+//     updatePlanThunk: plan => dispatch(updatePlanThunk(plan)),
+//     fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId))
 //   }
 // }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(EditDrawing)
+// export default connect(mapStateToProps, mapDispatchToProps)(EditPlan)
