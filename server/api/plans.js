@@ -30,10 +30,11 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:planId', async (req, res, next) => {
   try {
     //////use getPlans magicMethod
     const plan = await Plan.findByPk(req.params.planId)
+    console.log('API Singleplan=>', plan)
 
     if (plan) {
       res.json(plan)
@@ -46,7 +47,7 @@ router.get('/:id', async (req, res, next) => {
 })
 
 // /api/plans/:id
-router.put('/:id', async (req, res, next) => {
+router.put('/:planId', async (req, res, next) => {
   try {
     const planId = req.params.id
     const plan = await Plan.findByPk(planId)

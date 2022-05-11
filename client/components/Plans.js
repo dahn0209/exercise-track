@@ -11,12 +11,13 @@ import {
   StyledPlanListCard,
   StyledButton
 } from './Plans.styled'
+
 export class AllPlans extends React.Component {
   componentDidMount() {
     this.props.fetchPlans()
   }
-
   render() {
+    console.log('state=>', this.state)
     const plans = this.props.plans
     console.log('plans', plans)
     console.log('props=>', this.props)
@@ -24,7 +25,6 @@ export class AllPlans extends React.Component {
       <MainStyled>
         <HeaderStyled className="flex-item">
           <h1>All Plans</h1>
-          {console.log('plan inJSX=>', this.props.plans)}
         </HeaderStyled>
         <AddNewPlan className="flex-item" />
 
@@ -36,14 +36,12 @@ export class AllPlans extends React.Component {
           {plans.map(plan => {
             return (
               <StyledPlanListCard className="all-plan-list" key={plan.id}>
-                {/*
-              find a way to to use tenary logic to switch when clicking edit   */}
+                {/*find a way to to use tenary logic to switch when clicking edit   */}
                 <Link to={`/plans/${plan.id}`} className="plan-box">
                   <h2>{plan.name}</h2>
                 </Link>
 
                 <p className="plan-box">{plan.description}</p>
-
                 <StyledButton className="plan-box">
                   <Link to={`/plans/${plan.id}/edit`} className="button-class">
                     <button type="button" id="button-edit">

@@ -6,6 +6,7 @@ import {Login, Signup, UserHome, LandingPage} from './components'
 import {me} from './store'
 import updateUser from './components/updateUser'
 import AllPlans from './components/Plans'
+import EditPlan from './components/EditPlan'
 
 /**
  * COMPONENT
@@ -29,7 +30,8 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route exact path="/updateUser" component={updateUser} />
-            <Route path="/plans" component={AllPlans} />
+            <Route exact path="/plans" component={AllPlans} />
+            <Route path="/plans/:planId/edit" component={EditPlan} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

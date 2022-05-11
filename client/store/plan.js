@@ -15,6 +15,7 @@ export const fetchSinglePlan = id => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/plans/${id}`)
+      console.log('fetch this single Plan store=>', data)
 
       dispatch(setSinglePlan(data))
     } catch (err) {

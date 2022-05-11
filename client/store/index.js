@@ -11,7 +11,7 @@ const reducer = combineReducers({
   user,
   users: usersReducer,
   plans: plansReducer,
-  plan: singlePlanReducer
+  singlePlanReducer
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
