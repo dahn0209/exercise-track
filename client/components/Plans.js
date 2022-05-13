@@ -12,10 +12,59 @@ import {
   StyledButton
 } from './Plans.styled'
 
+// const defaultState = {
+//   name: '',
+//   description: ''
+// }
+
 export class AllPlans extends React.Component {
+  //  constructor() {
+  //   super()
+  //   this.state = defaultState
+
+  //   this.handleChange = this.handleChange.bind(this)
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  // }
   componentDidMount() {
     this.props.fetchPlans()
+    const planId = this.props.match.params.planId
+    console.log('look at planId=>', planId)
+    // this.props.fetchSinglePlan(planId)
+    // console.log('mount=>', this.props.fetchSinglePlan(planId))
+    // console.log('updatedPlans prop=>', this.props.updatedPlan)
+    // const {name, description} = this.props.updatedPlan
+    // if (planId) {
+    //   this.setState({
+    //     name: name,
+    //     description: description
+    //   })
+    // }
   }
+
+  // componentDidUpdate(prevProps) {
+  //   const {name, description, id} = this.props.updatedPlan
+  //   if (prevProps.updatedPlan.id !== id) {
+  //     this.setState({
+  //       name,
+  //       description
+  //     })
+  //   }
+  // }
+
+  //  handleChange(event) {
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   })
+  // }
+
+  // handleSubmit(event) {
+  //   event.preventDefault()
+  //   this.props.updatePlanThunk({
+  //     ...this.props.updatedPlan,
+  //     ...this.state
+  //   })
+  // }
+
   render() {
     console.log('state=>', this.state)
     const plans = this.props.plans
@@ -73,6 +122,7 @@ const mapStateToProps = state => {
   console.log('mapStatePropsState=>', state)
   return {
     plans: state.plans
+    // updatedPlan: state.singlePlanReducer
   }
 }
 
@@ -80,6 +130,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchPlans: () => dispatch(fetchPlans()),
     deletePlanThunk: planId => dispatch(deletePlanThunk(planId))
+    //  fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId)),
+    // updatePlanThunk: plan => dispatch(updatePlanThunk(plan))
   }
 }
 
