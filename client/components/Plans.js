@@ -97,7 +97,6 @@ export class AllPlans extends React.Component {
               </StyledPlanListCard>
             )
           })}
-          <div />
         </section>
       </MainStyled>
     )
