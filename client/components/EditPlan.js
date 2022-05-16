@@ -3,7 +3,6 @@ import {updatePlanThunk} from '../store/plans'
 import {connect} from 'react-redux'
 import {fetchSinglePlan} from '../store/plan'
 import {Link, useNavigate} from 'react-router-dom'
-
 // import {Route, Link} from 'react-router-dom'
 // import DrawingTool from './DrawingTool'
 
@@ -22,6 +21,7 @@ class EditPlan extends React.Component {
   }
   async componentDidMount() {
     try {
+      console.log('props in Mount=>', this.props)
       const planId = this.props.match.params.planId
       console.log('look at planId=>', planId)
       await this.props.fetchSinglePlan(planId)
