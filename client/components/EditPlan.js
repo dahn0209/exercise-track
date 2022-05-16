@@ -2,6 +2,8 @@ import React from 'react'
 import {updatePlanThunk} from '../store/plans'
 import {connect} from 'react-redux'
 import {fetchSinglePlan} from '../store/plan'
+import {Link, useNavigate} from 'react-router-dom'
+
 // import {Route, Link} from 'react-router-dom'
 // import DrawingTool from './DrawingTool'
 
@@ -18,18 +20,20 @@ class EditPlan extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  componentDidMount() {
-    const planId = this.props.match.params.planId
-    console.log('look at planId=>', planId)
-    this.props.fetchSinglePlan(planId)
-    console.log('mount=>', this.props.fetchSinglePlan(planId))
-    console.log('updatedPlans prop=>', this.props.updatedPlan)
-    const {name, description} = this.props.updatedPlan
-    if (planId) {
-      this.setState({
-        name: name,
-        description: description
-      })
+  async componentDidMount() {
+    try {
+      const planId = this.props.match.params.planId
+      console.log('look at planId=>', planId)
+      await this.props.fetchSinglePlan(planId)
+      const {name, description} = this.props.updatedPlan
+      if (planId) {
+        this.setState({
+          name: name,
+          description: description
+        })
+      }
+    } catch (error) {
+      console.log('you suck!!!')
     }
   }
 
