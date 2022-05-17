@@ -5,16 +5,14 @@ import {fetchSinglePlan} from '../store/plan'
 import {Link, useNavigate} from 'react-router-dom'
 // import {Route, Link} from 'react-router-dom'
 
-const defaultState = {
-  name: '',
-  description: '',
-  edit: true
-}
-
 class EditPlan extends React.Component {
-  constructor() {
-    super()
-    this.state = defaultState
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: this.props.planName,
+      description: this.props.planDescription,
+      edit: true
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,11 +20,13 @@ class EditPlan extends React.Component {
   componentDidMount() {
     // const propId=this.props.id
     console.log('props in Mount=>', this.props)
-    const planId = this.props.match.params.planId
-    console.log('look at planId=>', planId)
-    this.props.fetchSinglePlan(planId)
+    // const planId = this.props.match.params.planId
+    // console.log('look at planId=>', planId)
+    // this.props.fetchSinglePlan(planId)
     const {name, description} = this.props.updatedPlan
-    if (planId) {
+    console.log('name in UpdatedPlan=Mount>', name)
+    console.log('description UpdatedPlan Mount', description)
+    if (this.props.id) {
       this.setState({
         name: name,
         description: description
@@ -35,7 +35,11 @@ class EditPlan extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('previous Prop=>', prevProps)
     const {name, description, id} = this.props.updatedPlan
+    console.log('name Update=>', name)
+    console.log('des Update=>', description)
+    console.log('id update=>', id)
     if (prevProps.updatedPlan.id !== id) {
       this.setState({
         name,
@@ -45,12 +49,14 @@ class EditPlan extends React.Component {
   }
 
   handleChange(event) {
+    console.log('look at event=>', event)
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
   handleSubmit(event) {
+    console.log('event Handle=>', event)
     event.preventDefault()
     this.props.updatePlanThunk({
       ...this.props.updatedPlan,
@@ -72,7 +78,7 @@ class EditPlan extends React.Component {
               type="text"
               name="name"
               value={name}
-              placeholder="name of Plan"
+              placeholder="Plan Name"
               onChange={this.handleChange}
             />
 
@@ -81,7 +87,7 @@ class EditPlan extends React.Component {
               type="text"
               name="description"
               value={description}
-              placeholder="plan description"
+              placeholder="Plan Description"
               onChange={this.handleChange}
             />
 
@@ -104,7 +110,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId)),
+    // fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId)),
     updatePlanThunk: plan => dispatch(updatePlanThunk(plan))
   }
 }

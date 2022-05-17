@@ -1,6 +1,6 @@
 import React from 'react'
-import {fetchPlans, deletePlanThunk, updatePlanThunk} from '../store/plans'
-import {fetchSinglePlan} from '../store/plan'
+import {fetchPlans} from '../store/plans'
+
 import {connect} from 'react-redux'
 import AddNewPlan from './AddPlan'
 import {
@@ -10,7 +10,6 @@ import {
   StyledPlanListCard,
   StyledButton
 } from './Plans.styled'
-import EditPlan from './EditPlan'
 import SinglePlan from './SinglePlan'
 
 export class AllPlans extends React.Component {
@@ -24,7 +23,6 @@ export class AllPlans extends React.Component {
   }
 
   render() {
-    console.log('this.state=>', this.state)
     const plans = this.props.plans
     console.log('plans', plans)
     console.log('props=>', this.props)
@@ -62,15 +60,12 @@ export class AllPlans extends React.Component {
 const mapStateToProps = state => {
   return {
     plans: state.plans
-    // plan: state.singlePlanReducer
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPlans: () => dispatch(fetchPlans()),
-    deletePlanThunk: planId => dispatch(deletePlanThunk(planId))
-    // fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId))
+    fetchPlans: () => dispatch(fetchPlans())
   }
 }
 

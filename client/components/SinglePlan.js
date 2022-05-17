@@ -15,12 +15,12 @@ class SinglePlan extends React.Component {
     super(props)
     this.state = defaultState
   }
-  componentDidMount() {
-    const propId = this.props.id
-    console.log('props in Mount=>', this.props)
-    console.log('look at propId=>', propId)
-    this.props.fetchSinglePlan(propId)
-  }
+  // componentDidMount() {
+  //   const propId = this.props.id
+  //   console.log('props in Mount=>', this.props)
+  //   console.log('look at propId=>', propId)
+  //   this.props.fetchSinglePlan(propId)
+  // }
 
   render() {
     const {id, name, description} = this.props.plan
@@ -28,10 +28,17 @@ class SinglePlan extends React.Component {
     const plan = this.props.plan
     console.log('plan in render=>', plan)
     if (this.state.edit === true) {
-      return <EditPlan key={id} id={id} />
+      return (
+        <EditPlan
+          key={id}
+          id={id}
+          planName={name}
+          planDescription={description}
+        />
+      )
     } else {
       return (
-        <StyledPlanListCard className="all-plan-list">
+        <StyledPlanListCard key={id} id={id} className="all-plan-list">
           {/*find a way to to use tenary logic to switch when clicking edit   */}
           <Link to={`/plans/${id}`} className="plan-box">
             <h2>{name}</h2>
@@ -72,17 +79,17 @@ class SinglePlan extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    plan: state.singlePlanReducer
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     plan: state.singlePlanReducer
+//   }
+// }
 
 const mapDispatchToProps = dispatch => {
   return {
-    deletePlanThunk: planId => dispatch(deletePlanThunk(planId)),
-    fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId))
+    deletePlanThunk: planId => dispatch(deletePlanThunk(planId))
+    // fetchSinglePlan: planId => dispatch(fetchSinglePlan(planId))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SinglePlan)
+export default connect(null, mapDispatchToProps)(SinglePlan)
