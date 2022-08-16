@@ -48,7 +48,7 @@ const Footer = () => {
         <FooterBottom className="footer-bottom">
           <p>
             Copyright &copy;2022 Exercise-Track. Designed by{' '}
-            <span>David Ahn</span>
+            <span>David M. Ahn</span>
           </p>
         </FooterBottom>
       </FooterContent>
