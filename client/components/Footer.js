@@ -47,7 +47,7 @@ const Footer = () => {
         </ULsocial>
         <FooterBottom className="footer-bottom">
           <p>
-            Copyright &copy;2022 Exercise-Track. Desigined by{' '}
+            Copyright &copy;2022 Exercise-Track. Designed by{' '}
             <span>David Ahn</span>
           </p>
         </FooterBottom>
