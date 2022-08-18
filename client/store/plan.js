@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const initialState = {}
+//action creator for SET_SINGLE_PLAN
 
 const SET_SINGLE_PLAN = 'SET_SINGLE_PLAN'
 
@@ -10,7 +11,7 @@ export const setSinglePlan = plan => {
     plan
   }
 }
-
+// thunk for SET_SINGLE_PLAN
 export const fetchSinglePlan = id => {
   return async dispatch => {
     try {
@@ -24,6 +25,7 @@ export const fetchSinglePlan = id => {
   }
 }
 
+///Reducer
 export default function singlePlanReducer(state = initialState, action) {
   switch (action.type) {
     case SET_SINGLE_PLAN:
